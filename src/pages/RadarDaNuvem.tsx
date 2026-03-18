@@ -51,7 +51,12 @@ import logoCaixa from "@/assets/logos/caixa.png";
 import logoDnc from "@/assets/logos/dnc.png";
 import logoEudalia from "@/assets/logos/eudalia.png";
 import logoInvesttools from "@/assets/logos/investtools.png";
-import logoJuntos from "@/assets/logos/juntos.png";
+import logoRemessa from "@/assets/logos/remessa.png";
+import logoSamsung from "@/assets/logos/samsung.png";
+import logoSplitc from "@/assets/logos/splitc.png";
+import logoVtex from "@/assets/logos/vtex.png";
+import logoWildlife from "@/assets/logos/wildlife.png";
+import logoRefer from "@/assets/logos/refer.png";
 
 const logos = [
   { src: logoLumni, alt: "Lumni" },
@@ -64,6 +69,12 @@ const logos = [
   { src: logoEudalia, alt: "Eudalia" },
   { src: logoInvesttools, alt: "Investtools" },
   { src: logoJuntos, alt: "Juntos Somos+" },
+  { src: logoRemessa, alt: "Remessa Online" },
+  { src: logoSamsung, alt: "Samsung" },
+  { src: logoSplitc, alt: "SplitC" },
+  { src: logoVtex, alt: "VTEX" },
+  { src: logoWildlife, alt: "Wildlife" },
+  { src: logoRefer, alt: "Refer" },
 ];
 
 const MotionSection = ({ children, className, style, id }: { children: React.ReactNode; className?: string; style?: React.CSSProperties; id?: string }) => (
