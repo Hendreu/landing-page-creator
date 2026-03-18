@@ -51,6 +51,7 @@ import logoCaixa from "@/assets/logos/caixa.png";
 import logoDnc from "@/assets/logos/dnc.png";
 import logoEudalia from "@/assets/logos/eudalia.png";
 import logoInvesttools from "@/assets/logos/investtools.png";
+import logoJuntos from "@/assets/logos/juntos.png";
 import logoRemessa from "@/assets/logos/remessa.png";
 import logoSamsung from "@/assets/logos/samsung.png";
 import logoSplitc from "@/assets/logos/splitc.png";
