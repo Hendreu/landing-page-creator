@@ -251,7 +251,7 @@ const RadarDaNuvem = () => {
       </section>
 
       {/* Logo Carousel */}
-      <MotionSection className="py-12 px-6 bg-background border-b border-border">
+      <MotionSection className="py-12 px-6 bg-white border-b border-border">
         <div className="container mx-auto max-w-5xl">
           <motion.p variants={fadeUp} className="text-center text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-6">
             Empresas como a sua já vêem os benchmarks
