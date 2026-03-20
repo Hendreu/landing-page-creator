@@ -260,7 +260,7 @@ const RadarDaNuvem = () => {
             variants={fadeUp}
             className="hidden md:block mt-6 text-lg md:text-xl text-purple-100/80 max-w-3xl mx-auto leading-relaxed"
           >
-            Benchmarks reais de cloud para <strong className="text-white">CFOs, CTOs e FinOps</strong> — dados de empresas brasileiras, insights práticos e uma visão clara de onde a nuvem está vazando custo.
+            Benchmarks reais de cloud e insights práticos para <strong className="text-white">CFOs, CTOs e FinOps</strong>
           </motion.p>
 
           {/* Mobile copy — concise version */}
