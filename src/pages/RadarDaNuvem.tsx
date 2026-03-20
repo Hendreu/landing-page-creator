@@ -59,25 +59,6 @@ import logoVtex from "@/assets/logos/vtex.png";
 import logoWildlife from "@/assets/logos/wildlife.png";
 import logoRefer from "@/assets/logos/refer.png";
 
-const logos = [
-  { src: logoLumni, alt: "Lumni" },
-  { src: logoPitaco, alt: "Rei do Pitaco" },
-  { src: logoPixbet, alt: "Pixbet" },
-  { src: logoAntonella, alt: "Antonella" },
-  { src: logoBitig, alt: "Bitig" },
-  { src: logoCaixa, alt: "Caixa" },
-  { src: logoDnc, alt: "DNC" },
-  { src: logoEudalia, alt: "Eudalia" },
-  { src: logoInvesttools, alt: "Investtools" },
-  { src: logoJuntos, alt: "Juntos Somos+" },
-  { src: logoRemessa, alt: "Remessa Online" },
-  { src: logoSamsung, alt: "Samsung" },
-  { src: logoSplitc, alt: "SplitC" },
-  { src: logoVtex, alt: "VTEX" },
-  { src: logoWildlife, alt: "Wildlife" },
-  { src: logoRefer, alt: "Refer" },
-];
-
 const MotionSection = ({ children, className, style, id }: { children: React.ReactNode; className?: string; style?: React.CSSProperties; id?: string }) => (
   <motion.section
     initial="hidden"
@@ -92,15 +73,39 @@ const MotionSection = ({ children, className, style, id }: { children: React.Rea
 );
 
 const LogoMarquee = () => {
-  const half = Math.ceil(logos.length / 2);
-  const row1 = logos.slice(0, half);
-  const row2 = logos.slice(half);
+  // Row 1 — big, nationally recognized brands
+  const row1 = [
+    { src: logoSamsung, alt: "Samsung" },
+    { src: logoVtex, alt: "VTEX" },
+    { src: logoCaixa, alt: "Caixa" },
+    { src: logoPixbet, alt: "Pixbet" },
+    { src: logoRemessa, alt: "Remessa Online" },
+    { src: logoWildlife, alt: "Wildlife" },
+  ];
+  // Row 2 — known but less prominent
+  const row2 = [
+    { src: logoLumni, alt: "Lumni" },
+    { src: logoDnc, alt: "DNC" },
+    { src: logoJuntos, alt: "Juntos Somos+" },
+    { src: logoInvesttools, alt: "Investtools" },
+    { src: logoPitaco, alt: "Rei do Pitaco" },
+  ];
+  // Row 3 — smaller / less known
+  const row3 = [
+    { src: logoBitig, alt: "Bitig" },
+    { src: logoEudalia, alt: "Eudalia" },
+    { src: logoAntonella, alt: "Antonella" },
+    { src: logoSplitc, alt: "SplitC" },
+    { src: logoRefer, alt: "Refer" },
+  ];
+
   const doubled1 = [...row1, ...row1];
   const doubled2 = [...row2, ...row2];
+  const doubled3 = [...row3, ...row3];
 
   return (
     <div
-      className="overflow-hidden py-6 space-y-5"
+      className="overflow-hidden py-4 space-y-5"
       style={{
         maskImage: "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
         WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
@@ -112,7 +117,7 @@ const LogoMarquee = () => {
             key={i}
             src={logo.src}
             alt={logo.alt}
-            className="h-16 md:h-[4.6rem] w-auto object-contain transition-all duration-300 opacity-90 hover:opacity-100 mr-16"
+            className="h-20 md:h-24 w-auto object-contain transition-all duration-300 opacity-80 hover:opacity-100 mr-8 md:mr-14"
           />
         ))}
       </div>
@@ -122,7 +127,17 @@ const LogoMarquee = () => {
             key={i}
             src={logo.src}
             alt={logo.alt}
-            className="h-16 md:h-[4.6rem] w-auto object-contain transition-all duration-300 opacity-90 hover:opacity-100 mr-16"
+            className="h-20 md:h-24 w-auto object-contain transition-all duration-300 opacity-80 hover:opacity-100 mr-8 md:mr-14"
+          />
+        ))}
+      </div>
+      <div className="flex animate-marquee-slow items-center w-max">
+        {doubled3.map((logo, i) => (
+          <img
+            key={i}
+            src={logo.src}
+            alt={logo.alt}
+            className="h-20 md:h-24 w-auto object-contain transition-all duration-300 opacity-80 hover:opacity-100 mr-8 md:mr-14"
           />
         ))}
       </div>
@@ -175,7 +190,7 @@ const RadarDaNuvem = () => {
       <Navbar />
 
       {/* Hero — Full purple */}
-      <section className="relative min-h-screen flex items-center justify-center pt-16 px-6 overflow-hidden bg-gradient-to-br from-[hsl(270_60%_12%)] via-[hsl(270_55%_18%)] to-[hsl(270_50%_25%)]">
+      <section className="relative flex flex-col items-center justify-center pt-24 pb-20 px-6 overflow-hidden bg-gradient-to-br from-[hsl(270_60%_12%)] via-[hsl(270_55%_18%)] to-[hsl(270_50%_25%)]">
         {/* Floating orbs */}
         {[...Array(12)].map((_, i) => (
           <motion.div
@@ -237,14 +252,26 @@ const RadarDaNuvem = () => {
             <span className="text-purple-300">está aqui</span>
           </motion.h1>
 
+          {/* Desktop copy — full version */}
           <motion.p
             initial="hidden"
             animate="visible"
             custom={0.2}
             variants={fadeUp}
-            className="mt-6 text-lg md:text-xl text-purple-100/80 max-w-3xl mx-auto leading-relaxed"
+            className="hidden md:block mt-6 text-lg md:text-xl text-purple-100/80 max-w-3xl mx-auto leading-relaxed"
           >
             Benchmarks reais de cloud para <strong className="text-white">CFOs, CTOs e FinOps</strong> — dados de empresas brasileiras, insights práticos e uma visão clara de onde a nuvem está vazando custo.
+          </motion.p>
+
+          {/* Mobile copy — concise version */}
+          <motion.p
+            initial="hidden"
+            animate="visible"
+            custom={0.2}
+            variants={fadeUp}
+            className="md:hidden mt-4 text-base text-purple-100/80 max-w-xs mx-auto leading-relaxed"
+          >
+            Benchmarks de cloud para <strong className="text-white">CFOs, CTOs e FinOps</strong> — veja onde sua nuvem está desperdiçando custo.
           </motion.p>
 
           <motion.div
@@ -252,7 +279,7 @@ const RadarDaNuvem = () => {
             animate="visible"
             custom={0.25}
             variants={fadeUp}
-            className="mt-6 text-purple-200/60 text-sm"
+            className="hidden md:block mt-6 text-purple-200/60 text-sm"
           >
             3.000+ dados sobre custos de nuvem de empresas brasileiras
           </motion.div>
@@ -262,9 +289,9 @@ const RadarDaNuvem = () => {
             animate="visible"
             custom={0.3}
             variants={fadeUp}
-            className="mt-6 text-lg text-purple-100/90 font-medium"
+            className="hidden md:block mt-6 text-lg text-purple-100/90 font-medium"
           >
-            Você sabe como sua empresa se compara?
+            76% das empresas gastam mais que o esperado com cloud. E a sua?
           </motion.div>
 
           <motion.div initial="hidden" animate="visible" custom={0.4} variants={fadeUp} className="mt-8">
@@ -283,27 +310,21 @@ const RadarDaNuvem = () => {
         </div>
       </section>
 
-      {/* Logo Carousel */}
-      <MotionSection className="py-14 px-6 bg-white border-b border-border">
+      {/* Logo Carousel — fundo branco, logo abaixo do hero */}
+      <section className="py-10 bg-white border-b border-border">
         <div className="container mx-auto max-w-[74rem]">
-          <motion.div
-            variants={fadeUp}
+          <motion.p
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="text-center mb-10"
+            variants={fadeUp}
+            className="text-center text-sm font-medium tracking-widest uppercase text-muted-foreground mb-8"
           >
-            <div className="inline-flex items-center gap-5">
-              <div className="h-px w-20 bg-border" />
-              <p className="text-lg md:text-xl font-bold text-foreground tracking-tight">
-                Empresas como a sua já vêem os benchmarks
-              </p>
-              <div className="h-px w-20 bg-border" />
-            </div>
-          </motion.div>
-          <LogoMarquee />
+            Empresas que já vêem os benchmarks
+          </motion.p>
         </div>
-      </MotionSection>
+        <LogoMarquee />
+      </section>
 
       {/* O que tem dentro do Radar */}
       <MotionSection id="o-que-recebe" className="py-28 px-6 bg-gradient-to-b from-[hsl(270_60%_12%)] to-[hsl(270_55%_16%)]">
@@ -335,16 +356,19 @@ const RadarDaNuvem = () => {
                 icon: AlertTriangle,
                 value: "78%",
                 label: "dos respondentes têm custos de nuvem muito acima ou acima do esperado",
+                chart: "/grafico-78.png",
               },
               {
                 icon: PieChart,
                 value: "11%",
                 label: "das empresas têm o Financeiro como responsável pelo controle dessa linha",
+                chart: "/grafico-barra.png",
               },
               {
                 icon: DollarSign,
                 value: "50%",
                 label: "das empresas gastam mais de 5% do faturamento anual com nuvem, chegando a 33%",
+                chart: "/grafico-pizza.png",
               },
             ].map((stat) => (
               <motion.div
@@ -352,13 +376,18 @@ const RadarDaNuvem = () => {
                 variants={scaleIn}
                 whileHover={{ scale: 1.03, y: -4 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-10 text-center border border-purple-400/30 hover:border-purple-400/60 transition-colors"
+                className="bg-white/10 backdrop-blur-sm rounded-2xl p-10 text-center border border-purple-400/30 hover:border-purple-400/60 transition-colors flex flex-col"
               >
                 <stat.icon className="w-10 h-10 text-purple-300 mx-auto mb-5" />
                 <div className="font-display text-6xl font-bold text-white mb-3">
                   {stat.value}
                 </div>
-                <p className="text-purple-100 text-base">{stat.label}</p>
+                <p className="text-purple-100 text-base mb-6">{stat.label}</p>
+                <img
+                  src={stat.chart}
+                  alt={`Gráfico ${stat.value}`}
+                  className="w-full max-w-[280px] mx-auto mt-auto rounded-lg"
+                />
               </motion.div>
             ))}
           </motion.div>
