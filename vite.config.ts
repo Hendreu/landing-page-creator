@@ -11,6 +11,10 @@ export default defineConfig(({ mode }) => ({
     hmr: {
       overlay: false,
     },
+    headers: {
+      "ngrok-skip-browser-warning": "true",
+    },
+    allowedHosts: true,
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
@@ -19,3 +23,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
 }));
+
+
+//Blocked request. This host ("1fd7-152-254-141-163.ngrok-free.app") is not allowed.
+//To allow this host, add "1fd7-152-254-141-163.ngrok-free.app" to `server.allowedHosts` in vite.config.js.
